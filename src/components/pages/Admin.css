@@ -1,0 +1,3 @@
+.add-course-section form > input::placeholder{
+text-transform: capitalize;
+}
