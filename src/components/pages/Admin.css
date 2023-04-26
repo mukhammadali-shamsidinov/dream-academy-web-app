@@ -1,3 +1,24 @@
 .add-course-section form > input::placeholder{
 text-transform: capitalize;
 }
+  .search{
+    width: 100%;
+  }
+
+@media screen and (max-width:768px) {
+  .responsive{
+    width: 100%;
+  }
+  .details-items{
+    width: 100%;
+  
+
+  }
+  .search{
+    width: 100%;
+  }
+}
+
+input::placeholder{
+  text-transform: capitalize;
+}

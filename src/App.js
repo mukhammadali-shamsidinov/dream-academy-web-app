@@ -6,37 +6,62 @@ import Gallery from './components/Gallery';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Details from './components/pages/Details';
-import { useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import Map from './components/Map';
+import Login from './components/Register/Login';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './config';
+export const User = createContext()
 
 function App() {
-  const [details,setDetails] = useState({})
-  function data(data){
+  const [details, setDetails] = useState({})
+  const [user,setUser] = useState({})
+  function data(data) {
     console.log(data);
-    localStorage.setItem('items',JSON.stringify(data));
+    localStorage.setItem('items', JSON.stringify(data));
 
     setDetails(data)
   }
+
+
+  useEffect(()=>{
+    onAuthStateChanged(auth,user=>{
+      console.log(user.email);
+      setUser(user)
+      console.log(user);
+    })
+  },[])
+
   return (
-    <div className="app">
-               <Navbar /><br />
-        <Home />
-        <br />
-      <Routes>
-       <Route path='/' element={
-        <>
+    <User.Provider value={{user}}>
+ <div className="app">
 
-        <Gallery />
-        <br />
-        <Courses data={data} />
-        <div className="clr"></div>
-       
-        </>
-       } />
-
-       <Route path='/details/*' element={<Details data={details} />} />
-      </Routes>
+<Routes>
+  <Route path='/' element={<Login />} />
+  <Route path={`/web/${user.uid}`} element={
+    <>
+      <Navbar user={user} /><br />
+      <Home />
+      <br />
+      <Gallery />
+      <br />
+      <Courses data={data} />
+      <br />
+      <Map />
+      <div className="clr"></div>
       <Footer />
-    </div>
+    </>
+  } />
+
+  <Route path={`/web/${user.uid}/details/*`} element={<>
+    <Navbar user={user} />
+    <Details data={details} />
+  </> } />
+</Routes>
+
+</div>
+    </User.Provider>
+   
   );
 }
 

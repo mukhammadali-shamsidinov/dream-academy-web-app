@@ -2,11 +2,12 @@ import React from 'react'
 import GridViewIcon from '@mui/icons-material/GridView';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ChecklistIcon from '@mui/icons-material/Checklist';
 import { Link } from 'react-router-dom';
 const Sidebar = () => {
   return (
-    <section id='sidebar' className='sidebar bg-gray-800 text-teal-50'>
+    <section id='sidebar' className='sidebar bg-gray-600 text-teal-50'>
       <nav>
         <br />
         <ul className="list-items ml-5 mt-5">
@@ -17,6 +18,9 @@ const Sidebar = () => {
           </Link>
           <Link to={"/chart"}>
           <li className="list-item bg-teal-500 w-52 p-3 rounded hover:bg-teal-800 cursor-pointer"><ChecklistIcon /> Statistika</li>
+          </Link>
+          <Link to={"/users"}>
+          <li className="list-item bg-teal-500 w-52 p-3 rounded hover:bg-teal-800 cursor-pointer"><AccountBoxIcon /> Foydalanuvchilar</li>
           </Link>
          <Link to={"/settings"}>
          <li className="list-item bg-gray-700 w-52 p-3 rounded hover:bg-teal-800 cursor-pointer"><SettingsIcon /> Sozlanmalar</li>

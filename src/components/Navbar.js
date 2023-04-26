@@ -1,10 +1,10 @@
 import React from 'react'
 import ResponsiveAppBar from './Nav'
 
-const Navbar = () => {
+const Navbar = ({user}) => {
   return (
     <div>
-      <ResponsiveAppBar />
+      <ResponsiveAppBar userEmail={user} />
     </div>
   )
 }

@@ -5,8 +5,8 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import "video-react/dist/video-react.css"; 
-import Test from './test';
 import Admin from './components/pages/Admin';
+import 'react-toastify/dist/ReactToastify.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const darkTheme = createTheme({
   palette: {

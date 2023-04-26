@@ -12,13 +12,16 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SchoolIcon from '@mui/icons-material/School';
+import { deepOrange, deepPurple } from '@mui/material/colors';
+import { User } from '../App';
 
 const pages = ['Asosiy', 'Kurslar', 'Blog'];
 const settings = ['Profile', 'Logout'];
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({userEmail}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const {user} = React.useContext(User)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -44,7 +47,7 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href={`/web/${user.uid}`}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -99,7 +102,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href={`/web/${user.uid}`}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -128,7 +131,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar sx={{ bgcolor: deepOrange[500],color:"white" }} variant='rounded' alt={userEmail.email} src={userEmail.email} />
               </IconButton>
             </Tooltip>
             <Menu

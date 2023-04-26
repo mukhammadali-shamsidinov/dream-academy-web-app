@@ -10,7 +10,7 @@ const Details = () => {
       <div className="details-items">
       <CustomizedAccordions data={items} />
       </div>
-
+      
     </div>
   )
 }
