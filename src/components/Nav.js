@@ -14,9 +14,10 @@ import MenuItem from '@mui/material/MenuItem';
 import SchoolIcon from '@mui/icons-material/School';
 import { deepOrange, deepPurple } from '@mui/material/colors';
 import { User } from '../App';
+import { Link } from 'react-router-dom';
 
-const pages = ['Asosiy', 'Kurslar', 'Blog'];
-const settings = ['Profile', 'Logout'];
+const pages = ['Asosiy', 'Kurslar', ''];
+const settings = ['Profile'];
 
 function ResponsiveAppBar({userEmail}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -92,7 +93,7 @@ function ResponsiveAppBar({userEmail}) {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center"><a href={`#${page.toLowerCase()}`}>{page}</a></Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -123,7 +124,7 @@ function ResponsiveAppBar({userEmail}) {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+               <a href={`#${page.toLowerCase()}`}>{page}</a>
               </Button>
             ))}
           </Box>
@@ -152,7 +153,7 @@ function ResponsiveAppBar({userEmail}) {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center"><Link to={`/web/${user.uid}/${setting}`}>{setting}</Link></Typography>
                 </MenuItem>
               ))}
             </Menu>

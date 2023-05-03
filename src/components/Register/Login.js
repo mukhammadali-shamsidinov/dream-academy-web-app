@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { auth } from '../../config'
 import { ToastContainer, toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
+import TelegramIcon from '@mui/icons-material/Telegram';
 
 const Login = () => {
   const {register,handleSubmit} = useForm()
@@ -36,7 +37,10 @@ const navigate = useNavigate()
         <TextField {...register("password")} type='password' placeholder='password' />
         <br />
         <Button variant='contained' type='submit' color='info'>Login</Button>
-      </form>
+        <br />
+          <Typography className='login-phone-number transition ease-in bg-gray-900 hover:bg-teal-600 cursor-pointer text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center' color={'InfoBackground'}>Murojat uchun tel +998(91) 922-62-96</Typography>
+           </form>
+
     </div>
   )
 }

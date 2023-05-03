@@ -29,7 +29,7 @@ const Courses = ({data}) => {
   return (
     <>
    
-     <div className='card-section'>
+     <div className='card-section' id='kurslar'>
       <div className="courses-title">
         <h1 className='text-5xl text-center'>Courses</h1>
       </div>

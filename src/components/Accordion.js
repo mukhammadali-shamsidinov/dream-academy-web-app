@@ -83,12 +83,12 @@ export default function CustomizedAccordions({data}) {
       return c
     }
   }).map((data,i)=>(
-    <Accordion key={data.id} expanded={expanded === 'panel1'} className="responsive" onChange={handleChange('panel1')}>
+    <Accordion key={data.id} expanded={expanded === `panel${i+1}`} className="responsive" onChange={handleChange(`panel${i+1}`)}>
     <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
       <Typography>{data.title.toUpperCase()} </Typography>
     </AccordionSummary>
     <AccordionDetails>
-    <Player poster={data.image} src={data.video}>
+    <Player poster={data.poster} src={data.video}>
 
 <ControlBar autoHide={false}>
 <ReplayControl seconds={30} order={3.1} />

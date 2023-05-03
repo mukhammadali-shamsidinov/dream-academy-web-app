@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CustomizedAccordions from '../Accordion'
+import AccordionItem from '../Accordion'
 
 const Details = () => {
   const [items] = useState(JSON.parse(localStorage.getItem("items")))
@@ -8,7 +8,7 @@ const Details = () => {
   return (
     <div className='details-section'>
       <div className="details-items">
-      <CustomizedAccordions data={items} />
+      <AccordionItem data={items} />
       </div>
       
     </div>

@@ -11,6 +11,7 @@ import Map from './components/Map';
 import Login from './components/Register/Login';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './config';
+import Profile from './components/Profile';
 export const User = createContext()
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
       <Footer />
     </>
   } />
+  <Route path={`/web/${user.uid}/profile`}  element={<Profile user={user} />} />
 
   <Route path={`/web/${user.uid}/details/*`} element={<>
     <Navbar user={user} />
